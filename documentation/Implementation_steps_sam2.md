@@ -24,7 +24,7 @@ conda install notebook>=5.3 jupyter_server
 # Step 3: Install PyTorch and dependencies
 conda install pytorch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 pytorch-cuda=11.8 -c pytorch -c nvidia
 
-# Step 4: Clone the SAM2 repository
+# Step 4: Clone the nnSAM2 repository
 git clone https://github.com/facebookresearch/sam2.git && cd sam2
 
 # Step 5: Install required packages
