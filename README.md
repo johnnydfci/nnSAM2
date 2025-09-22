@@ -57,13 +57,16 @@ Public manual annotations (**826 MRI scans (13633 slices), 276 CT scans (3832 sl
 ---
 
 ## 🙏 Acknowledgment
-This work builds upon:  
-- Public datasets: Back-pain MRI, TotalSegmentator, WORD  
-- Private datasets: AFL, AGBRESA (with ethics approvals)  
+This work builds upon the following **public datasets**:
 
-The framework integrates **SAM2** and **nnU-Net** for **minimal-supervision segmentation** and **muscle composition analysis**.
+- **Back-pain MRI** — [Mendeley Data](https://data.mendeley.com/datasets/k57fr854j2/2)  
+- **TotalSegmentator (CT)** — [Zenodo](https://zenodo.org/records/10047292)  
+- **WORD (CT)** — [GitHub](https://github.com/HiLab-git/WORD)  
 
----
+The framework integrates:  
+- **[SAM2](https://github.com/facebookresearch/sam2)** — Segment Anything Model 2  
+- **[nnU-Net](https://github.com/MIC-DKFZ/nnUNet)** — nnU-Net
+
 
 ## 📄 License
 This project is licensed under the **MIT License**.  
