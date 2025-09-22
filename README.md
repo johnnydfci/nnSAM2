@@ -23,8 +23,11 @@ nnSAM2 combines **SAM2** with **nnU-Net**, achieving state-of-the-art performanc
 - Refer to: `slice_prompt_selection.ipynb`
 
 ### 2. Pseudo-label Generation
-- Apply SAM2 with single-slice prompts to generate pseudo-labels.  
-- Refer to: `sam2_pseudo_labeling.ipynb`
+   Perform LPM segmentation using the SAM2 model in a training-free manner.
+   
+   - [Github_SAM2seg_LPM_T1W.ipynb](Github_SAM2seg_LPM_T1W.ipynb)  
+   
+   For environment setup and data preparation , refer to: [Implementation_steps.md](documentation/Implementation_steps_sam2.md)
 
 ### 3. Iterative Refinement
 - Refine pseudo-labels through **three sequential nnU-Net models** with confidence-guided filtering.  
