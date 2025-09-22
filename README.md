@@ -18,23 +18,26 @@ nnSAM2 combines **SAM2** with **nnU-Net**, achieving state-of-the-art performanc
 
 ## ⚙️ Implementation Workflow
 
-### 1. Slice Annotation
-- Manually annotate one representative slice per dataset (L4/L5 level).  
+### 1. Region Interception
+- Select the **L4/L5 disc region** (from L3/L4 to L5/S1).  
+- One representative slice per dataset is manually annotated.  
 - Refer to: `slice_prompt_selection.ipynb`
 
-### 2. Pseudo-label Generation
-   Perform LPM segmentation using the SAM2 model in a training-free manner.
-   
-   - [Github_SAM2seg_LPM_T1W.ipynb](Github_SAM2seg_LPM_T1W.ipynb)  
-   
-   For environment setup and data preparation , refer to: [Implementation_steps.md](documentation/Implementation_steps_sam2.md)
+### 2. nnsam2 Initialization — SAM2 Pseudo-label Generation
+- Use **SAM2 in a training-free manner** with single-slice prompts.  
+- Pseudo-labels are generated across MRI and CT volumes within each dataset.  
+- IoU scores are recorded to guide later refinement.  
+- Notebooks:  
+  - [Github_SAM2seg_LPM_T1W.ipynb](Github_SAM2seg_LPM_T1W.ipynb)  
+  - [Github_SAM2seg_LPM_T2W.ipynb](Github_SAM2seg_LPM_T2W.ipynb)  
+- For environment setup and data preparation, refer to: [Implementation_steps_sam2.md](documentation/Implementation_steps_sam2.md)
 
-### 3. Iterative Refinement
+### 3. Iterative Refinement with nnU-Net
 - Refine pseudo-labels through **three sequential nnU-Net models** with confidence-guided filtering.  
-- Refer to: `nnsam2_training_pipeline.md`
+- Refer to: [Implementation_steps_nnunet.md](documentation/Implementation_steps_nnunet.md)
 
 ### 4. Post-Processing
-- Apply largest connected component analysis and hole filling for segmentation masks.  
+- Apply largest connected component (LCC) analysis and hole filling.  
 - Refer to: `nnsam2_postprocessing.ipynb`
 
 ### 5. Segmentation Accuracy Evaluation
@@ -46,6 +49,7 @@ nnSAM2 combines **SAM2** with **nnU-Net**, achieving state-of-the-art performanc
 - **Fat Ratio**: Dixon MRI  
 - **CT Attenuation**: Hounsfield Units (HU)  
 - Refer to: `nnsam2_quant_analysis.ipynb`
+
 
 ---
 
