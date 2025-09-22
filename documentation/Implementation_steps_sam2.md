@@ -1,6 +1,6 @@
 # **SAM2 Model for Lumbar Paraspinal Muscle Segmentation**
 
-This repository implements **SAM2** for **lumbar paraspinal muscle segmentation** using **Linux (Ubuntu 18.04)** with an **RTX 3060 GPU (12GB VRAM)**. The implementation is based on [Facebook Research's SAM2 repository](https://github.com/facebookresearch/sam2).
+The implementation is based on [Facebook Research's SAM2](https://github.com/facebookresearch/sam2) 
 
 ---
 
@@ -15,8 +15,8 @@ Before using SAM2, ensure that Python and PyTorch are installed. The model requi
 ### **Installation Steps**
 ```bash
 # Step 1: Create and activate the conda environment
-conda create -n sam2 python=3.10
-conda activate sam2
+conda create -n nnsam2 python=3.10
+conda activate nnsam2
 
 # Step 2: Install Jupyter Notebook
 conda install notebook>=5.3 jupyter_server
@@ -35,30 +35,23 @@ notebooks/video_predictor_example.ipynb
 
 # Step7: Replace the following files in the original SAM2 repository to output iou_score:
 
-sam2_video_predictor.py → sam2/sam2_video_predictor.py
-sam2_base.py → sam2/modeling/sam2_base.py  
+notebooks/sam2_video_predictor.py → sam2/sam2_video_predictor.py
+notebooks/sam2_base.py → sam2/modeling/sam2_base.py  
 
-# Step8: Run SAM2 for LPM segmentation on T1-weighted (T1W) and T2-weighted (T2W) MRI images in a training-free manner.
-# We have not re-trained SAM2 but instead use its original weights and implementation code with our LPM dataset.
-Github_SAM2seg_LPM_T1W.ipynb
-Github_SAM2seg_LPM_T2W.ipynb
+# Step 8: Run SAM2 for LPM segmentation on MR images in a training-free manner.  
+We did not re-train SAM2 but used its original weights with our LPM datasets.  
+During this stage, **IoU scores were recorded** for each slice to guide pseudo-label selection in the subsequent nnU-Net training stages.  
+
+Notebooks:  
+- `Github_SAM2seg_LPM_T1W.ipynb`  
+- `Github_SAM2seg_LPM_T2W.ipynb`  
+
 
 ```
 
 To **remove** the environment if needed:
 ```bash
-conda remove -n sam2 --all
-```
-
----
-
-## **Data Download**
-Download the dataset and extract the files into the following directories. The dataset is provided in both JPG and PNG formats (.zip) within this GitHub repository:
-
-```
-notebook/videos/MRI515_T1
-
-notebook/videos/MRI515_T2
+conda remove -n nnsam2 --all
 ```
 
 ---
