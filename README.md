@@ -11,8 +11,8 @@ This automated deep-learning (DL) pipeline enables **few-shot segmentation of lu
 ---
 
 ## 🔍 Method Overview
-nnSAM2 integrates **Segment Anything Model 2 (SAM2)** with **nnU-Net** to achieve **state-of-the-art performance** using only **a single annotated slice per dataset**.  
-The framework was validated on **1,219 scans (19,439 slices) from 762 participants across six datasets**, spanning T1-weighted, T2-weighted, Dixon MRI, and contrast-enahcned and plain CT.
+
+nnSAM2 combines **SAM2** with **nnU-Net**, achieving state-of-the-art performance with only **6 annotated slices out of 19,439**, validated across six MRI and CT datasets.
 
 ---
 
