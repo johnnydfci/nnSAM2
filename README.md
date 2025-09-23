@@ -19,9 +19,10 @@ nnSAM2 combines **SAM2** with **nnU-Net**, achieving state-of-the-art performanc
 ## ⚙️ Implementation Workflow
 
 ### 1. Region Interception
-- Select the **L4/L5 disc region** (from L3/L4 to L5/S1).  
-- One representative slice per dataset is manually annotated.  
-- Refer to: `slice_prompt_selection.ipynb`
+- Select the **L4-L5 region** (from L3/L4 to L5/S1 disc level).  
+- One representative slice per dataset is manually annotated.
+- img_intercept_L4-L5_github.ipynb
+- Refer to:  [img_intercept_L4-L5_github.ipynb](img_intercept_L4-L5_github.ipynb)
 
 ### 2. nnsam2 Initialization — SAM2 Pseudo-label Generation
 - Use **SAM2 in a training-free manner** with single-slice prompts.  
