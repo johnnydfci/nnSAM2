@@ -4,13 +4,8 @@
 
 ---
 
-## 📌 Graphical Abstract
-Welcome to the **nnSAM2** repository!  
-This automated deep-learning (DL) pipeline enables **few-shot segmentation of lumbar paraspinal muscles (LPM)** across multi-sequence MRI and multi-protocol CT.
-
----
-
 ## 🔍 Method Overview
+Welcome to the **nnSAM2** repository!  
 
 nnSAM2 combines **SAM2** with **nnU-Net**, achieving state-of-the-art performance with only **6 annotated slices out of 19,439**, validated across six MRI and CT datasets.
 
@@ -18,37 +13,64 @@ nnSAM2 combines **SAM2** with **nnU-Net**, achieving state-of-the-art performanc
 
 ## ⚙️ Implementation Workflow
 
-### 1. Region Interception
-- Select the **L4/L5 disc region** (from L3/L4 to L5/S1).  
+### 1. Region Extraction
+- Select the **L4–L5 region** (from the L3/L4 to the L5/S1 disc level).  
 - One representative slice per dataset is manually annotated.  
-- Refer to: `slice_prompt_selection.ipynb`
+- Notebook: [img_intercept_L4-L5_github.ipynb](notebooks/img_intercept_L4-L5_github.ipynb)
 
-### 2. nnsam2 Initialization — SAM2 Pseudo-label Generation
-- Use **SAM2 in a training-free manner** with single-slice prompts.  
-- Pseudo-labels are generated across MRI and CT volumes within each dataset.  
-- IoU scores are recorded to guide later refinement.  
-- Notebooks:  
-  - [Github_SAM2seg_LPM_T1W.ipynb](Github_SAM2seg_LPM_T1W.ipynb)  
-  - [Github_SAM2seg_LPM_T2W.ipynb](Github_SAM2seg_LPM_T2W.ipynb)  
-- For environment setup and data preparation, refer to: [Implementation_steps_sam2.md](documentation/Implementation_steps_sam2.md)
+---
 
-### 3. Iterative Refinement with nnU-Net
-- Refine pseudo-labels through **three sequential nnU-Net models** with confidence-guided filtering.  
-- Refer to: [Implementation_steps_nnunet.md](documentation/Implementation_steps_nnunet.md)
+### 2. nnsam2 Pipeline
+The implementation of **nnsam2** follows a seven-step pipeline. All Jupyter notebooks are located in the `notebooks/` folder.  
 
-### 4. Post-Processing
-- Apply largest connected component (LCC) analysis and hole filling.  
-- Refer to: `nnsam2_postprocessing.ipynb`
+**Step 1. NIfTI → JPG Conversion**  
+- Convert 3D NIfTI images into 2D slice-wise JPGs (2-class masks).  
+- Notebook: [step1_nii_2_jpg_2class.ipynb](notebooks/step1_nii_2_jpg_2class.ipynb)
 
-### 5. Segmentation Accuracy Evaluation
-- Evaluate performance using **Dice Similarity Coefficient (DSC)**.  
-- Refer to: `nnsam2_eval_dsc.ipynb`
+**Step 2. Interleaved Slice Ordering**  
+- Interleave slices from target and representative volumes (e.g., L4–L5 levels) to prepare for promptable segmentation.  
+- Notebook: [step2_jpg_interleave.ipynb](notebooks/step2_jpg_interleave.ipynb)
 
-### 6. Quantitative Analysis
+**Step 3. SAM2 Segmentation with IoU Recording**  
+- Run **SAM2** in batch mode on interleaved slices.  
+- Generate 2-class segmentation masks and record IoU scores for confidence filtering.  
+- Notebook: [step3_SAM2seg_in_batch.ipynb](notebooks/step3_SAM2seg_in_batch.ipynb)
+
+**Step 4. Reconstruction into 3D NIfTI**  
+- Convert SAM2’s slice-level JPG outputs back into 3D NIfTI volumes.  
+- Preserve 2-class masks for later evaluation.  
+- Notebook: [step4_SAM2seg2cls_jpg2nii.ipynb](notebooks/step4_SAM2seg2cls_jpg2nii.ipynb)
+
+**Step 5. Top-Slice Selection by IoU**  
+- Select the top slice(s) based on IoU scores.  
+- Reconstruct NIfTI files using only validated slices for higher-quality pseudo-labels.  
+- Notebook: [step5_selectTopSlice_jpg2nii.ipynb](notebooks/step5_selectTopSlice_jpg2nii.ipynb)
+
+**Step 6. nnU-Net Training with High-IoU Pseudo-labels**  
+- Train three sequential nnU-Net models, each initialized from pseudo-labels filtered by confidence scores and anatomical constraints.  
+- Documentation: [Implementation_steps_nnunet.md](documentation/Implementation_steps_nnunet.md)
+
+**Step 7. DSC-based Comparison**  
+- Compute **Dice Similarity Coefficient (DSC)** between:  
+  - nnU-Net stage outputs and SAM2 pseudo-labels  
+  - Consecutive nnU-Net stages  
+- Notebook: [step6_DSCcompare_nnsam2_stage2.ipynb](notebooks/step6_DSCcompare_nnsam2_stage2.ipynb)
+
+---
+
+### 3. Post-Processing
+- Apply **largest connected component (LCC)** analysis and hole filling.  
+- Notebook: [nnsam2_postprocessing.ipynb](nnsam2_postprocessing.ipynb)
+
+### 4. Segmentation Accuracy Evaluation
+- Evaluate segmentation accuracy using the **Dice Similarity Coefficient (DSC)**.  
+- Notebook: [nnsam2_eval_dsc.ipynb](nnsam2_eval_dsc.ipynb)
+
+### 5. Quantitative Analysis
 - **Muscle Volume**: MRI & CT masks  
 - **Fat Ratio**: Dixon MRI  
 - **CT Attenuation**: Hounsfield Units (HU)  
-- Refer to: `nnsam2_quant_analysis.ipynb`
+- Notebook: [nnsam2_quant_analysis.ipynb](nnsam2_quant_analysis.ipynb)
 
 
 ---
