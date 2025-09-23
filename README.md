@@ -29,7 +29,7 @@ nnSAM2 combines **SAM2** with **nnU-Net**, achieving state-of-the-art performanc
 - For environment setup and data preparation, refer to: [Implementation_steps_sam2.md](documentation/Implementation_steps_sam2.md)
 
 ### 3. Iterative Refinement with nnU-Net
-- Refine pseudo-labels through **three sequential nnU-Net models** with confidence-guided filtering.  
+- Refine pseudo-labels through **three sequential, independent nnU-Net models** with confidence-guided filtering.  
 - Refer to: [Implementation_steps_nnunet.md](documentation/Implementation_steps_nnunet.md)
 
 ### 4. Post-Processing
