@@ -4,13 +4,8 @@
 
 ---
 
-## 📌 Graphical Abstract
-Welcome to the **nnSAM2** repository!  
-This automated deep-learning (DL) pipeline enables **few-shot segmentation of lumbar paraspinal muscles (LPM)** across multi-sequence MRI and multi-protocol CT.
-
----
-
 ## 🔍 Method Overview
+Welcome to the **nnSAM2** repository!  
 
 nnSAM2 combines **SAM2** with **nnU-Net**, achieving state-of-the-art performance with only **6 annotated slices out of 19,439**, validated across six MRI and CT datasets.
 
