@@ -55,30 +55,19 @@ The implementation of **nnsam2** follows a seven-step pipeline. All Jupyter note
 - Compute **Dice Similarity Coefficient (DSC)** between:  
   - nnU-Net stage outputs and SAM2 pseudo-labels  
   - Consecutive nnU-Net stages  
-- Notebook: [step6_DSCcompare_nnsam2_stage2.ipynb](notebooks/step6_DSCcompare_nnsam2_stage2.ipynb)
+- Notebook: [step7_DSCcompare_nnsam2_stage2.ipynb](notebooks/step7_DSCcompare_nnsam2_stage2.ipynb)
 
 ---
 
-### 3. Post-Processing
-- Apply **largest connected component (LCC)** analysis and hole filling.  
-- Notebook: [nnsam2_postprocessing.ipynb](nnsam2_postprocessing.ipynb)
-
-### 4. Segmentation Accuracy Evaluation
-- Evaluate segmentation accuracy using the **Dice Similarity Coefficient (DSC)**.  
-- Notebook: [nnsam2_eval_dsc.ipynb](nnsam2_eval_dsc.ipynb)
-
-### 5. Quantitative Analysis
+### 3. Quantitative Analysis
 - **Muscle Volume**: MRI & CT masks  
 - **Fat Ratio**: Dixon MRI  
 - **CT Attenuation**: Hounsfield Units (HU)  
-- Notebook: [nnsam2_quant_analysis.ipynb](nnsam2_quant_analysis.ipynb)
+- Notebook: [nnsam2_quant_analysis.ipynb](notebooks/nnsam2_quant_analysis.ipynb)
 
 
 ---
 
-## 📥 Model Download
-Pretrained nnSAM2 models are available:  
-👉 [Download Model] (TBD)
 
 ## 📥 Data Download
 
