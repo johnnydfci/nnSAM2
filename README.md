@@ -47,8 +47,9 @@ The implementation of **nnsam2** follows a seven-step pipeline. All Jupyter note
 - Notebook: [step5_selectTopSlice_jpg2nii.ipynb](notebooks/step5_selectTopSlice_jpg2nii.ipynb)
 
 **Step 6. nnU-Net Training with High-IoU Pseudo-labels**  
-- Train three sequential nnU-Net models, each initialized from pseudo-labels filtered by confidence scores and anatomical constraints.  
-- Documentation: [Implementation_steps_nnunet.md](documentation/Implementation_steps_nnunet.md)
+- Train three sequential nnU-Net models, each initialized with pseudo-labels retained after filtering by IoU-based confidence scores and anatomical plausibility checks.  
+- For details on nnU-Net training and evaluation, please refer to the [LPM_Segmentator Documentation](https://github.com/johnnydfci/LPM_Segmentator).
+
 
 **Step 7. DSC-based Comparison**  
 - Compute **Dice Similarity Coefficient (DSC)** between:  
