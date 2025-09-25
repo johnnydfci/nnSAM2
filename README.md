@@ -60,10 +60,11 @@ The implementation of **nnsam2** follows a seven-step pipeline. All Jupyter note
 ---
 
 ### 3. Quantitative Analysis
-- **Muscle Volume**: MRI & CT masks  
-- **Fat Ratio**: Dixon MRI  
-- **CT Attenuation**: Hounsfield Units (HU)  
-- Notebook: [nnsam2_quant_analysis.ipynb](notebooks/nnsam2_quant_analysis.ipynb)
+- **Muscle Volume**: computed from MRI & CT segmentation masks  
+- **Fat Ratio**: computed only from **Dixon MRI** (example code provided)  
+- **CT Attenuation**: measured in Hounsfield Units (HU) from CT scans  
+
+📓 Example notebook: [nnsam2_quant_analysis.ipynb](notebooks/nnsam2_quant_analysis.ipynb)
 
 
 ---
