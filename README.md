@@ -5,9 +5,18 @@
 ---
 
 ## 🔍 Method Overview
-Welcome to the **nnSAM2** repository!  
 
-nnSAM2 combines **SAM2** with **nnU-Net**, achieving state-of-the-art performance with only **6 annotated slices out of 19,439**, validated across six MRI and CT datasets.
+We present **No-New SAM2 (nnsam2)**, a framework that achieves **state-of-the-art performance** in few-shot, multi-modality lumbar paraspinal muscle (LPM) segmentation.  
+
+Instead of introducing a new architecture or fine-tuning SAM2, the power of **nnsam2** comes from systematically integrating:  
+- **SAM2** → broad generalization across modalities  
+- **nnU-Net** → robust 3D contextual awareness  
+
+Using only **6 labeled slices out of 19,439** (one per dataset), **nnsam2** demonstrated *statistical comparability* with expert manual references for:  
+- **Muscle volume** (MRI & CT)  
+- **CT attenuation**  
+- **Dixon MRI fat ratio**  
+
 
 ---
 
