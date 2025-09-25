@@ -21,7 +21,9 @@ nnSAM2 combines **SAM2** with **nnU-Net**, achieving state-of-the-art performanc
 ---
 
 ### 2. nnsam2 Pipeline
-The implementation of **nnsam2** follows a seven-step pipeline. All Jupyter notebooks are located in the `notebooks/` folder.  
+The implementation of **nnsam2** follows a seven-step pipeline. All Jupyter notebooks are located in the `notebooks/` folder. For environment setup, please refer to the documentation:  
+[`Implementation_steps_sam2.md`](documentation/Implementation_steps_sam2.md) 
+
 
 **Step 1. NIfTI → JPG Conversion**  
 - Convert 3D NIfTI images into 2D slice-wise JPGs (2-class masks).  
