@@ -5,9 +5,18 @@
 ---
 
 ## 🔍 Method Overview
-Welcome to the **nnSAM2** repository!  
 
-nnSAM2 combines **SAM2** with **nnU-Net**, achieving state-of-the-art performance with only **6 annotated slices out of 19,439**, validated across six MRI and CT datasets.
+We present **No-New SAM2 (nnsam2)**, a framework that achieves **state-of-the-art performance** in few-shot, multi-modality lumbar paraspinal muscle (LPM) segmentation.  
+
+Instead of introducing a new architecture or fine-tuning SAM2, the power of **nnsam2** comes from systematically integrating:  
+- **SAM2** → broad generalization across modalities  
+- **nnU-Net** → robust 3D contextual awareness  
+
+Using only **6 labeled slices out of 19,439** (one per dataset), **nnsam2** demonstrated *statistical comparability* with expert manual references for:  
+- **Muscle volume** (MRI & CT)  
+- **CT attenuation**  
+- **Dixon MRI fat ratio**  
+
 
 ---
 
@@ -21,7 +30,9 @@ nnSAM2 combines **SAM2** with **nnU-Net**, achieving state-of-the-art performanc
 ---
 
 ### 2. nnsam2 Pipeline
-The implementation of **nnsam2** follows a seven-step pipeline. All Jupyter notebooks are located in the `notebooks/` folder.  
+The implementation of **nnsam2** follows a seven-step pipeline. All Jupyter notebooks are located in the `notebooks/` folder. For environment setup, please refer to the documentation:  
+[`Implementation_steps_sam2.md`](documentation/Implementation_steps_sam2.md) 
+
 
 **Step 1. NIfTI → JPG Conversion**  
 - Convert 3D NIfTI images into 2D slice-wise JPGs (2-class masks).  
@@ -60,10 +71,11 @@ The implementation of **nnsam2** follows a seven-step pipeline. All Jupyter note
 ---
 
 ### 3. Quantitative Analysis
-- **Muscle Volume**: MRI & CT masks  
-- **Fat Ratio**: Dixon MRI  
-- **CT Attenuation**: Hounsfield Units (HU)  
-- Notebook: [nnsam2_quant_analysis.ipynb](notebooks/nnsam2_quant_analysis.ipynb)
+- **Muscle Volume**: computed from MRI & CT segmentation masks  
+- **Fat Ratio**: computed only from **Dixon MRI** (example code provided)  
+- **CT Attenuation**: measured in Hounsfield Units (HU) from CT scans  
+
+📓 Example notebook: [nnsam2_quant_analysis.ipynb](notebooks/nnsam2_quant_analysis.ipynb)
 
 
 ---
