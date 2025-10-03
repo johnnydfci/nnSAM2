@@ -40,9 +40,15 @@ Using only **6 labeled slices out of 19,439** (one per dataset), **nnsam2** demo
 The implementation of **nnsam2** follows a seven-step pipeline. All Jupyter notebooks are located in the `notebooks/` folder. For environment setup, please refer to the documentation:  
 [`Implementation_steps_sam2.md`](documentation/Implementation_steps_sam2.md) 
 
+ You can reproduce these steps using our released data.  
+- Note: We provide **annotations** created in this work, combined with images sourced from previously published public datasets.  
+- Released data includes: **826 MRI scans (13,633 slices)** and **276 CT scans (3,832 slices)**.  
+
+👉 [Download Images and Annotations](https://drive.google.com/drive/folders/1zBKoy3cctG5pYEWl9EAqhEqMabw_BzTy) *(no password required)*
+
 
 **Step 1. NIfTI → JPG Conversion**  
-- Convert 3D NIfTI images into 2D slice-wise JPGs (2-class masks).  
+- Convert 3D NIfTI images into 2D slice-wise JPGs (2-class masks).
 - Notebook: [step1_nii_2_jpg_2class.ipynb](notebooks/step1_nii_2_jpg_2class.ipynb)
 
 **Step 2. Interleaved Slice Ordering**  
