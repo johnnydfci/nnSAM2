@@ -29,7 +29,11 @@ Using only **6 labeled slices out of 19,439** (one per dataset), **nnsam2** demo
 ### 1. Region Extraction
 - Select the **L4–L5 region** (from the L3/L4 to the L5/S1 disc level).  
 - One representative slice per dataset is manually annotated.  
-- Notebook: [img_intercept_L4-L5_github.ipynb](notebooks/img_intercept_L4-L5_github.ipynb)
+- Notebook: [img_intercept_L4-L5_github.ipynb](img_intercept_L4-L5_github.ipynb)
+  
+- Optional: CT image resample to ~5mm out-of-plane spacing
+- [CT-image_resample.ipynb](notebooks/CT-image_resample.ipynb)
+- 
 
 ---
 
