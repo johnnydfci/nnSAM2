@@ -17,9 +17,9 @@ Instead of introducing a new architecture or fine-tuning SAM2, the power of **nn
 - **nnU-Net** → robust 3D contextual awareness  
 
 Using only **6 labeled slices out of 19,439** (one per dataset), **nnsam2** demonstrated *statistical comparability* with expert manual references for:  
-- **Muscle volume** (MRI & CT)  
-- **CT attenuation**  
-- **Dixon MRI fat ratio**  
+- **Muscle volume** (multi-sequence MRI, multi-protocol CT)  
+- **CT attenuation**  (multi-protocol CT)
+- **Fat ratio**   (Dixon MRI)
 
 
 ---
