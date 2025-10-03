@@ -71,8 +71,13 @@ The implementation of **nnsam2** follows a seven-step pipeline. All Jupyter note
 - Notebook: [step5_selectTopSlice_jpg2nii.ipynb](notebooks/step5_selectTopSlice_jpg2nii.ipynb)
 
 **Step 6. nnU-Net Training with High-IoU Pseudo-labels**  
-- Train three sequential nnU-Net models, each initialized with pseudo-labels retained after filtering by IoU-based confidence scores and anatomical plausibility checks.  
-- For details on nnU-Net training and evaluation, please refer to the [LPM_Segmentator Documentation](https://github.com/johnnydfci/LPM_Segmentator).
+- Perform a **three-step refinement scheme** using nnU-Net:  
+  1. **Step 6.1** — Initialize nnU-Net with pseudo-labels retained after IoU-based confidence filtering.  
+  2. **Step 6.2** — Retrain nnU-Net with improved labels from Stage 1 outputs (further filtered by confidence and anatomical plausibility).  
+  3. **Step 6.3** — Final refinement with labels from Stage 2, producing the most anatomically consistent segmentation.  
+
+- For implementation details of nnU-Net training and evaluation, please refer to the [LPM_Segmentator Documentation](https://github.com/johnnydfci/LPM_Segmentator).
+
 
 
 **Step 7. DSC-based Comparison**  
