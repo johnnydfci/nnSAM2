@@ -8,7 +8,7 @@
 
 We present **No-New SAM2 (nnsam2)**, a framework that achieves **state-of-the-art performance** in few-shot, multi-modality lumbar paraspinal muscle (LPM) segmentation.  
 <p align="center">
-  <img src="documentation/nnsam2_workflow.jpg" alt="Graphical Abstract" width="600">
+  <img src="documentation/nnsam2_workflow.png" alt="Graphical Abstract" width="600">
 </p>
 
 
