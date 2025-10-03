@@ -31,9 +31,8 @@ Using only **6 labeled slices out of 19,439** (one per dataset), **nnsam2** demo
 - One representative slice per dataset is manually annotated.  
 - Notebook: [img_intercept_L4-L5_github.ipynb](img_intercept_L4-L5_github.ipynb)
   
-- Optional: CT image resample to ~5mm out-of-plane spacing
-- [CT-image_resample.ipynb](notebooks/CT-image_resample.ipynb)
-- 
+**Optional (CT only):** Resample images to ~5 mm slice thickness for consistent out-of-plane spacing.  
+- Implementation: [CT-image_resample.ipynb](notebooks/CT-image_resample.ipynb)
 
 ---
 
