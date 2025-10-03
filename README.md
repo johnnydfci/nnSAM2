@@ -99,7 +99,7 @@ The implementation of **nnsam2** follows a seven-step pipeline. All Jupyter note
 
 **Total:** 826 MRI scans (13,633 slices) and 276 CT scans (3,832 slices).  
 
-👉 [Download Annotations](https://drive.google.com/drive/folders/1zBKoy3cctG5pYEWl9EAqhEqMabw_BzTy) *(no password required)*  
+👉 [Download Images and Annotations](https://drive.google.com/drive/folders/1zBKoy3cctG5pYEWl9EAqhEqMabw_BzTy) *(no password required)*  
 
 
 ---
